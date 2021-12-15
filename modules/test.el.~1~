@@ -1,3 +1,0 @@
-(message "It works!")
-
-(setq my/delete-me "The variable has been set!")
