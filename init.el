@@ -31,6 +31,7 @@
 (require 'appearance)
 (require 'ivy-config)
 (require 'vi)
+(require 'lsp)
 
 
 (org-babel-do-load-languages
@@ -104,7 +105,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-collection modular-config general which-key use-package rainbow-delimiters ivy-rich gruvbox-theme evil doom-themes doom-modeline counsel))))
+    (company company-mode evil-collection modular-config general which-key use-package rainbow-delimiters ivy-rich gruvbox-theme evil doom-themes doom-modeline counsel))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
