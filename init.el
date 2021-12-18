@@ -106,6 +106,11 @@
    "h d f" '(describe-function :which-key "describe function")
    "h d m" '(describe-mode :which-key "describe mode")))
 
+
+(defun my/choose-buffer-font ()
+  (interactive)
+  (face-remap-add-relative 'default :family (ivy-read "Select font for this buffer: " (font-family-list))))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
