@@ -46,6 +46,14 @@
   (setq which-key-idle-delay 0.3))
 
 
+(use-package dired
+  :ensure nil
+  :commands (dired dired-jump)
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-key-map
+			      "h" 'dired-up-directory
+			      "l" 'dired-find-file))
+
 ;; Key bindings
 
 (use-package general
