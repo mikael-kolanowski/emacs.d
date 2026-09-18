@@ -42,12 +42,10 @@
                 mode-line-modes
                 mode-line-end-spaces))
 
-(blink-cursor-mode -1)
 (setq inhibit-startup-screen t)
 (setq scroll-margin 0
       scroll-conservatively 100000
-      scroll-preserve-screen-position 1
-      use-short-answers t)
+      scroll-preserve-screen-position 1)
 
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
@@ -58,19 +56,11 @@
 (global-display-line-numbers-mode)
 (hl-line-mode)
 
-;; Refresh buffers when files change on disk
-(global-auto-revert-mode 1)
-;; Remember cursor position in files
-(save-place-mode 1)
-;; Recently opened files
-(recentf-mode 1)
 (setq recentf-max-saved-items 200)
-(electric-pair-mode)
-(repeat-mode)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 ;; Package management
-(setq package-archives '(( "melpa" . "https://melpa.org/packages/")
+(setq package-archives'(("melpa" . "https://melpa.org/packages/")
 			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
 			 ("elpa" . "https://elpa.gnu.org/packages/")))
 ;; typst-ts-mode 0.12.2 autoloads use `define-compilation-mode`.
@@ -85,7 +75,21 @@
   :custom
   (ring-bell-function 'ignore)
   ;; The week starts on Monday
-  (calendar-week-start-day 1))
+  (calendar-week-start-day 1)
+  (use-short-answers t)
+
+  :config
+  (blink-cursor-mode -1)
+  ;; Remember cursor position in files
+  (save-place-mode 1)
+  ;; Remember recently opened files
+  (recentf-mode 1)
+  ;; Refresh buffers when files change on disk
+  (global-auto-revert-mode 1)
+  ;; C-x o C-x o -> C-x o o
+  (repeat-mode)
+  (electric-pair-mode)
+  )
 
 (use-package isearch
   :ensure nil
