@@ -115,11 +115,20 @@
   :init
   (marginalia-mode))
 
+(use-package orderless
+  :config
+  (setq completion-styles '(orderless basic)))
+
 (use-package consult
   :bind
   (("M-o f" . consult-find))
   ("M-o g" . consult-ripgrep)
-  ("M-o l" . consult-line))
+  ("M-o l" . consult-line)
+  ;; Drop-in replacements
+  ("C-x b" . consult-buffer)
+  ("M-y" . consult-yank-pop)
+  ("M-g i" . consult-imenu)
+  ("M-g g" . consult-goto-line))
 
 (use-package magit)
 
