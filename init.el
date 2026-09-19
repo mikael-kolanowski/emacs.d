@@ -97,12 +97,13 @@
   (:map isearch-mode-map
         ("C-." . isearch-forward-thing-at-point))
   :custom
-  (lazy-count-prefix-format "(%s/%s)")
+  (lazy-count-prefix-format "(%s/%s) ")
   (isearch-lazy-count t)
   (isearch-allow-motion t)
   (isearch-allow-scroll t)
   (isearch-repeat-on-direction-change t)
-  (isearch-wrap-pause 'no-ding))
+  (isearch-wrap-pause 'no-ding)
+  (search-whitespace-regexp ".*?"))
 
 (use-package vertico
   :custom
@@ -121,6 +122,10 @@
   ("M-o l" . consult-line))
 
 (use-package magit)
+
+(use-package which-key
+  :init
+  (which-key-mode))
 
 ;; Coding ----------------------------------------------------------------------
 (use-package eglot
@@ -147,7 +152,8 @@
                        "master" "typescript/src"))
         (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript"
                 "master" "tsx/src"))
-        (typst . ("https://github.com/uben0/tree-sitter-typst"))))
+        (typst . ("https://github.com/uben0/tree-sitter-typst"))
+        (go . ("https://github.com/tree-sitter/tree-sitter-go"))))
 
 (use-package typst-ts-mode
   :mode "\\.typ\\'")
